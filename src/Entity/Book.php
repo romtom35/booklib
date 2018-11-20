@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="book", uniqueConstraints={@ORM\UniqueConstraint(name="UNIQ_CBE5A331989D9B62", columns={"slug"})}, indexes={@ORM\Index(name="IDX_CBE5A331F675F31B", columns={"author_id"})})
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Book
 {
@@ -103,6 +104,21 @@ class Book
     public function __construct()
     {
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function setCreatedAtValue()
+    {
+        $this->setCreatedAt(new \DateTime());
+    }
+    /**
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedAtValue()
+    {
+        $this->setUpdatedAt(new \DateTime());
     }
 
     public function getId(): ?int

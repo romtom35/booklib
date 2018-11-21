@@ -26,7 +26,7 @@ class DefaultController extends BaseController
             throw $this->createNotFoundException('Auteur introuvable');
         }
 
-        return new Response($author->getLastname() . ' ' . $author->getFirstname() . ' ' . $author->getId());
+        return $this->render("default/index.html.twig", ["author" => $author]);
 
     }
 

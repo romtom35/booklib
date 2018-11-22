@@ -10,14 +10,15 @@ class CategoryFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $categories = ['Roman', 'SF', 'BD', 'Polar', 'Fantastique', 'Horreur'];
+        $categories = ["Roman", "SF", "BD"];
 
-        foreach ($categories as $category) {
+        foreach ($categories as $key => $category) {
             $cat = new Category();
             $cat->setName($category);
             $manager->persist($cat);
-            $this->addReference('category-' . strtolower($category), $cat);
+            $this->setReference('category-' . ($key + 1), $cat);
         }
+
         $manager->flush();
     }
 }

@@ -38,7 +38,7 @@ class Author
     private $lastname;
     /**
      * @var Collection
-     * @ORM\OneToMany(targetEntity="App\Entity\Book", mappedBy="author", fetch="EAGER")
+     * @ORM\OneToMany(targetEntity="App\Entity\Book", mappedBy="author")
      */
     private $books;
 

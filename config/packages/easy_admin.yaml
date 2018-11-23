@@ -1,0 +1,19 @@
+easy_admin:
+    site_name: 'Mon super site'
+    entities:
+        Author:
+            class: App\Entity\Author
+            label: 'Auteur'
+            list:
+                title: 'Liste des auteurs'
+
+        Book:
+            class: App\Entity\Book
+            label: 'Livres'
+            list:
+                title: 'Liste des livres'
+                fields:
+                    - { property: 'title' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.uploads_dir%' }
+
+

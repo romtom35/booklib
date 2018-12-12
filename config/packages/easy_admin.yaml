@@ -16,4 +16,3 @@ easy_admin:
                     - { property: 'title' }
                     - { property: 'image', type: 'image', base_path: '%app.path.uploads_dir%' }
 
-
